@@ -1,5 +1,5 @@
 ---
-title: /test /test /test
+title: /home
 layout: home
 permalink: /
 ---
