@@ -3,11 +3,13 @@
  */
 
 :root {
-  --base-color: #DBDBDB;
-  --border: dashed 1px rgba(219, 219, 219, 0.9);
+  // --base-color: #DBDBDB;
+  --base-color: rgb(202, 197, 190);
+  --border: dashed 1px rgba(177, 168, 158, 0.738);
   --selection-background: rgba(219, 219, 219, 0.99);
   --selection-text: #000;
-  --background-color: rgb(18, 18, 15);
+  // --background-color: rgb(6, 6, 0);
+  --background-color: rgb(18,18,15);
   --text-color: var(--base-color);
   --placeholder-color: var(--base-color);
   --link-color: var(--base-color);
