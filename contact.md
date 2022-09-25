@@ -1,7 +1,7 @@
 ---
 layout: page
-title: /contact
+title: .contact
 permalink: /contact/
 ---
 
-test
+[https://github.com/markrosos](https://github.com/markrosos)
