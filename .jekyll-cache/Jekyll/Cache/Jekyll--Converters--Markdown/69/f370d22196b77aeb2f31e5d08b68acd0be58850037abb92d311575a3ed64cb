@@ -1,0 +1,55 @@
+I"=<p><strong>Read the documentation. Read the error message.</strong></p>
+
+<p>Getting this up and running was a lot of fun. Deploying a themed Jekyll page used to be automatic through github itself, but the functionality was removed due to security issues a few weeks ago or something. Figuring out how to get this page up and running in a way that allowed me to actually modify it took much longer than it should have. The problem:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  /opt/hostedtoolcache/Ruby/3.0.4/x64/bin/bundle install --jobs 4
+  Your bundle only supports platforms ["x64-mingw-ucrt"] but your local platform
+  is x86_64-linux. Add the current platform to the lockfile with
+  `bundle lock --add-platform x86_64-linux` and try again.
+  Took   1.62 seconds
+Error: Error: The process '/opt/hostedtoolcache/Ruby/3.0.4/x64/bin/bundle' failed with exit code 16
+</code></pre></div></div>
+
+<p>Why? Who knows why. The message above the error told me how to fix it though. It would have been easier to find if it wasn’t in a block of text that was collapsed above the actual error though. At least it’s fixed, and here I am.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                   .,,uod8B8bou,,.
+          ..,uod8BBBBBBBBBBBBBBBBRPFT?l!i:.
+     ,=m8BBBBBBBBBBBBBBBRPFT?!||||||||||||||
+     !...:!TVBBBRPFT||||||||||!!^^""'   ||||
+     !.......:!?|||||!!^^""'            ||||
+     !.........||||                     ||||
+     !.........||||  ##                 ||||
+     !.........||||                     ||||
+     !.........||||                     ||||
+     !.........||||                     ||||
+     !.........||||                     ||||
+     `.........||||                    ,||||
+      .;.......||||               _.-!!|||||    .,uodWBBBBb.....||||       _.-!!|||||||||!:' !YBBBBBBBBBBBBBBb..!|||:..-!!|||||||!iof68BBBBBb.... !..YBBBBBBBBBBBBBBb!!||||||||!iof68BBBBBBRPFT?!::   `. !....YBBBBBBBBBBBBBBbaaitf68BBBBBBRPFT?!:::::::::     `. !......YBBBBBBBBBBBBBBBBBBBRPFT?!::::::;:!^"`;:::       `. !........YBBBBBBBBBBRPFT?!::::::::::^''...::::::;         iBBbo. `..........YBRPFT?!::::::::::::::::::::::::;iof68bo.      WBBBBbo.   `..........:::::::::::::::::::::::;iof688888888888b.     `YBBBP^'
+`........::::::::::::::::;iof688888888888888888888b.     `
+  `......:::::::::;iof688888888888888888888888888888b.
+    `....:::;iof688888888888888888888888888888888899fT!
+      `..::!8888888888888888888888888888888899fT|!^"'
+        `' !!988888888888888888888888899fT|!^"'
+            `!!8888888888888888899fT|!^"'
+              `!988888888899fT|!^"'
+                `!9899fT|!^"'
+                  `!^"'
+
+
+                                  _________________
+           /                /|
+          /                / |
+         /________________/ /|
+      ###|      ____      |//|
+     #   |     /   /|     |/.|
+    #  __|___ /   /.|     |  |_______________
+   #  /      /   //||     |  /              /|                  ___
+  #  /      /___// ||     | /              / |                 / \ \
+  # /______/!   || ||_____|/              /  |                /   \ \
+  #| . . .  !   || ||                    /  _________________/     \ \
+  #|  . .   !   || //      ________     /  /\________________  {   /  }
+  /|   .    !   ||//~~~~~~/   0000/    /  / / ______________  {   /  /
+ / |        !   |'/      /9  0000/    /  / / /             / {   /  /
+/ #\________!___|/      /9  0000/    /  / / /_____________/___  /  /    / #     /_____\/        /9  0000/    /  / / /_  /\_____________\/  /   / #                      ``^^^^^^    /   \ \ . ./ / ____________   /  +=#==================================/     \ \ ./ / /.  .  .  \ /  /  |#                                   |      \ \/ / /___________/  /  #                                    |_______\__/________________/  |                                    |               |  |  / /         |                                    |               |  | / /         |                                    |       ________|  |/ /________         |                                    |      /_______/    \_________/\         |                                    |     /        /  /           \ )         |                                    |    /OO^^^^^^/  / /^^^^^^^^^OO\)         |                                    |            /  / /          |                                    |           /  / /  |                                    |          /___\/  |hectoras                            |           oo  |____________________________________|
+</code></pre></div></div>
+:ET

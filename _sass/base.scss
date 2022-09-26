@@ -1,15 +1,30 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700');
 
+// @font-face {
+//     font-family: "Input";
+//     src: url('fonts\\Input.ttf') format ('truetype');
+//     // src: url('fonts\\quake1-webfont.woff2') format('woff2'), 
+//     //      url('fonts\\quake1-webfont.woff') format('woff'),
+//     //      url('fonts\\quake1.ttf') format('truetype');
+//     font-weight: normal;
+//     font-style: normal;
+//   }
+
 /**
  * Style variables
  */
 $base-font-family: 'Source Code Pro', monospace !default;
+// $base-font-family: 'Input', monospace !default;
+// $base-font-family: monospace !default;
 $base-font-size: 14px !default;
 $mobile-font-size: 12px !default;
 $base-line-height: 1.5 !default;
 $container-width: 90% !default;
 $container-max-width: 800px !default;
+
+
+
 
 /**
  * Global
@@ -235,7 +250,14 @@ pre {
   font-size: $base-font-size;
   color: var(--text-color);
   line-height: 1.7 !important;
-  font-family: $base-font-family !important;
+  font-family: monospace;
+  // letter-spacing: 1px;
+}
+
+.ascii {
+  letter-spacing: 1px;
+  background-color: black;
+  // color:rgb(86, 235, 0)
 }
 // .highlight .hll { background-color: var(--code-color-2); }
 // .highlight .c { color: var(--code-color-1); font-style: italic } /* Comment */
