@@ -41,7 +41,7 @@ const pushAdd = function () {
     selections();
     selectAdd = true;
     data2.length = 0;
-    data2.push(data3.reduce((a, b) => a - b));
+    data2.push(data3.reduce((a, b) => a + b));
   }
 };
 
