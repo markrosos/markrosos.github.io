@@ -85,7 +85,7 @@ const operateTest = function () {
 };
 ```
 
-When I call the operator function, it just calls addTest (or whichever operator), returns the result, then runs arrayTest(), which stores the result in a variable, clears data2[] of the numbers used in the previous operation, and pushes the result variable back into data2[] for further operations. No issues switching operators this way. The operator buttons determine which operator function to call. I guess that's simple? I don't know. Is it "best practices" to use if/else so many times? I don't know that either. It all seems to work, but with no feedback, I have the feeling that my code could be a horrow show to any experienced programmer.
+When I call the operator function, it just calls addTest (or whichever operator), returns the result, then runs arrayTest(), which stores the result in a variable, clears data2[] of the numbers used in the previous operation, and pushes the result variable back into data2[] for further operations. No issues switching operators this way. The operator buttons determine which operator function to call. I guess that's simple? I don't know. Is it "best practices" to use if/else so many times? I don't know that either. It all seems to work, but with no feedback, I have the feeling that my code could be a horror show to any experienced programmer.
 
 Back to this event listener:
 
