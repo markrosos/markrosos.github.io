@@ -1,0 +1,67 @@
+I")$<p>** Progress, finally?**</p>
+
+<p>First, the project link:
+–project url: <a href="https://markrosos.github.io/Calculator/">https://markrosos.github.io/Calculator/</a>
+–repository: <a href="https://github.com/markrosos/Calculator">https://github.com/markrosos/Calculator</a></p>
+
+<p>Finally made it back to my calculator project and figured out a very simple way to add the numbers as a string to the first array, and then convert them to a number in the second array. Onto my decimal issue:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="dl">'</span><span class="s1">.nbox</span><span class="dl">'</span><span class="p">).</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">btn</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">btn</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">textContent</span><span class="p">);</span>
+    <span class="nx">digits</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+    <span class="nx">data</span> <span class="o">=</span> <span class="p">[</span><span class="nx">digits</span><span class="p">];</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Previously I was converting the string to a number when using the join() function, so all it took was removing Number(data.join(‘’)) to input a number with a decimal (as a string) into the array. Seems unbelievably simple looking back. I think I was trying to find complicated solutions to easy problems. It took me a bit to figure out how to then convert the string into a number when pushing it to data2[], but of course the solution to that was simple too:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">combineNum</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">data2</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nb">Number</span><span class="p">(...</span><span class="nx">data</span><span class="p">));</span>
+  <span class="nx">data</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>I fiddled around with trying to convert it with the button press event, but I couldn’t get that to work. Again, seems obvious looking back, but I still feel like there should be a way to convert ‘digits’ to a number before it’s defined as the data[] array again.</p>
+
+<p>I (kind of) solved my dumb if else problem by putting it into its own function as follows:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">selectionRules</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">selectAdd</span><span class="p">)</span> <span class="nx">add</span><span class="p">(</span><span class="nx">data2</span><span class="p">);</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">selectSubtract</span><span class="p">)</span> <span class="nx">subtract</span><span class="p">(</span><span class="nx">data2</span><span class="p">);</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">selectDivide</span><span class="p">)</span> <span class="nx">divide</span><span class="p">(</span><span class="nx">data2</span><span class="p">);</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">selectMultiply</span><span class="p">)</span> <span class="nx">multiply</span><span class="p">(</span><span class="nx">data2</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Yeah, it’s doing the same thing as before, but there are less lines, it’s easier to read, and there is no longer an if nested under an if. That previous if is still in the operate function, but there’s only one:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">operate</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">combineNum</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">data2</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">selectionRules</span><span class="p">();</span>
+    <span class="nx">shiftNum</span><span class="p">();</span>
+    <span class="nx">selections</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>I’m still unsure if calling all of these functions inside of a function is ‘bad practice’ or not. This is another point where I could really use some feedback, but I truly am on my own here. It all works though.</p>
+
+<p>There were two more problems to solve, which was the Clear button, and Delete button. Both were easy. Maybe I’m getting better at this? Or maybe I’m just getting better at google. I at least knew what to look for when it came to removing items, which was the slice() function. Here’s what I came up with:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">clearButton</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">innerdisplay</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+  <span class="nx">data</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="nx">data2</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="nx">deleteButton</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+  <span class="nx">innerdisplay</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">innerdisplay</span><span class="p">.</span><span class="nx">textContent</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>This was really simple. I’m almost proud of how quickly I solved this problem. I’m sure an experienced developer could do this in a minute, but it wasn’t the hours-long problem I was worried it would be. Is the whole project done? I think it’s done. I might make some minor aesthetic changes, but everything works, and everything looks okay. I should probably move on anyway, I doubt I’m learning all that much continuing to fiddle with this. I did learn a lot though. Let’s hope that becomes a trend.</p>
+:ET

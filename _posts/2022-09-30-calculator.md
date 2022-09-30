@@ -4,7 +4,7 @@ title: Calculator Finished?
 date: 2022-09-30 07:53:06 -0400
 ---
 
-** Progress, finally? **
+**Progress, finally?**
 
 First, the project link:
 --project url: [https://markrosos.github.io/Calculator/](https://markrosos.github.io/Calculator/)
